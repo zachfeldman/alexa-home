@@ -8,3 +8,5 @@ gem 'color'
 gem 'nest_thermostat'
 
 gem 'pry'
+
+gem 'numbers_in_words'

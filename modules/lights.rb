@@ -1,7 +1,7 @@
 require 'hue'
 require './color'
 
-CLIENT = Hue::Client.new
+HUE_CLIENT = Hue::Client.new
 
 ZACH_ROOM_LIGHTS = ["bedside", "overhead"]
 
@@ -19,11 +19,11 @@ def process_lights(command)
   
   # Select lights
   if command.scan(/all/).length > 0
-    lights_to_act_on = CLIENT.lights
+    lights_to_act_on = HUE_CLIENT.lights
   elsif command.scan(/room/).length > 0
-    lights_to_act_on = CLIENT.lights.select{|light| ZACH_ROOM_LIGHTS.include?(light.name.downcase)}
+    lights_to_act_on = HUE_CLIENT.lights.select{|light| ZACH_ROOM_LIGHTS.include?(light.name.downcase)}
   else
-    lights_to_act_on = CLIENT.lights.select{|light| command.split(" ").include?(light.name.downcase)}
+    lights_to_act_on = HUE_CLIENT.lights.select{|light| command.split(" ").include?(light.name.downcase)}
   end
 
   # Set lighting options
@@ -43,7 +43,7 @@ def process_lights(command)
   index = words.index("brightness")
   if !index.nil?
     options[:color] = {} if !options[:color]
-    options[:color][:bri] = words[index + 1].to_i
+    options[:color][:bri] = (words[index + 1] + " " + words[index + 2]).in_numbers
   end
 
   light_command(lights_to_act_on, options)
