@@ -1,14 +1,33 @@
+GIT
+  remote: git://github.com/treeder/rack-flash.git
+  revision: 20e393cdce030f35422dba545a1fed91ed398b29
+  specs:
+    rack-flash3 (1.0.5)
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (4.2.0)
+      activesupport (= 4.2.0)
+      builder (~> 3.1)
+    activerecord (4.2.0)
+      activemodel (= 4.2.0)
+      activesupport (= 4.2.0)
+      arel (~> 6.0)
     activesupport (4.2.0)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    arel (6.0.0)
+    builder (3.2.2)
+    childprocess (0.5.5)
+      ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
     color (1.7.1)
+    ffi (1.9.6)
     httparty (0.8.3)
       multi_json (~> 1.0)
       multi_xml
@@ -25,6 +44,7 @@ GEM
       httparty (~> 0.8.3)
     numbers_in_words (0.2.0)
       activesupport
+    pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -32,24 +52,45 @@ GEM
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
+    rake (10.4.2)
+    rubyzip (1.1.6)
+    selenium-webdriver (2.44.0)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
+    sinatra-activerecord (2.0.3)
+      activerecord (>= 3.2)
+      sinatra (~> 1.0)
     slop (3.6.0)
+    sqlite3 (1.3.10)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    watir-webdriver (0.6.11)
+      selenium-webdriver (>= 2.18.0)
+    websocket (1.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   color
   hue
   nest_thermostat
   numbers_in_words
+  pg
   pry
+  rack-flash3!
+  rake
   sinatra
+  sinatra-activerecord
+  sqlite3
+  watir-webdriver
