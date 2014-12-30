@@ -39,11 +39,23 @@ def process_lights(command)
   index = words.index("color")
   options[:color] = string_to_hue(words[index + 1]) if !index.nil?
 
+
+  command = command.gsub("to hundred", "two hundred") if command.scan(/to hundred/).length > 0
   words = command.split(" ")
+
+
   index = words.index("brightness")
   if !index.nil?
     options[:color] = {} if !options[:color]
-    options[:color][:bri] = (words[index + 1] + " " + words[index + 2]).in_numbers
+    brightness = (words[index..-1].join(" ")).in_numbers
+    puts brightness
+    for number in 1..10 do
+      if brightness == number
+        puts ((brightness.to_f/10.to_f)*255).to_i
+        brightness = ((brightness.to_f/10.to_f)*255).to_i
+      end
+    end
+    options[:color][:bri] = brightness
   end
 
   light_command(lights_to_act_on, options)
