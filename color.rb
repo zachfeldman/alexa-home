@@ -1,5 +1,7 @@
 require 'color'
 
+DEFAULT_SATURATION = 220
+
 class RGB
 
   attr_reader :red, :green, :blue
@@ -97,7 +99,15 @@ def rgb_to_hsl(colors)
 end
 
 def string_to_hue(string)
-  hex = Color::CSS[string].html
-  colors = rgb_to_hsl(HexRGB.new(hex).to_rgb)
-  {hue: colors[0], saturation: colors[1]}
+  basic_color_hues = {red: 65280, pink: 56100, blue: 46920, green: 25500, yellow: 12750}
+  if basic_color_hues.keys.include?(string.to_sym)
+    colors = []
+    colors[0]
+    directive = {hue: basic_color_hues[string.to_sym], saturation: DEFAULT_SATURATION}
+  else
+    hex = Color::CSS[string].html
+    colors = rgb_to_hsl(HexRGB.new(hex).to_rgb)
+    directive = {hue: colors[0], saturation: colors[1]}
+  end
+  return directive
 end

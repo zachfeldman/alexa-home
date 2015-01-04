@@ -5,6 +5,10 @@ HUE_CLIENT = Hue::Client.new
 
 ZACH_ROOM_LIGHTS = ["bedside", "overhead"]
 
+
+
+SATURATION_MODIFIERS = {lighter: 200, light: 200, darker: 255, dark: 255, darkest: 200}
+
 def light_command(lights, options = {})
   p options
   lights.each do |light|
@@ -37,12 +41,29 @@ def process_lights(command)
 
   words = command.split(" ")
   index = words.index("color")
-  options[:color] = string_to_hue(words[index + 1]) if !index.nil?
+  if !index.nil?
 
+    color_command = words[index + 1]
+    options[:color] = string_to_hue(color_command)
+
+  end
+
+  command.gsub("leider", "lighter")
+  command.gsub("later", "lighter")
+  scan_command = command.scan(/#{SATURATION_MODIFIERS.keys.map{|k| "#{k.to_s}\\s" }.join("|")}/)
+  if scan_command.length > 0
+    scan_command = scan_command.map{|k| k.strip}
+    options = {} if options.nil?
+    options[:color] = {} if options[:color].nil?
+    if scan_command[0] == "light" && !scan_command[1].nil? && scan_command[1] != "light"
+      scan_command[0] = "dark"  
+    end
+    options[:color][:saturation] = SATURATION_MODIFIERS[scan_command[0].to_sym]
+  end
+  options[:color][:saturation]
 
   command = command.gsub("to hundred", "two hundred") if command.scan(/to hundred/).length > 0
   words = command.split(" ")
-
 
   index = words.index("brightness")
   if !index.nil?
@@ -57,6 +78,8 @@ def process_lights(command)
     end
     options[:color][:bri] = brightness
   end
+
+
 
   light_command(lights_to_act_on, options)
 end
