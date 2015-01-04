@@ -1,0 +1,2 @@
+rackup -p 4567 -D
+ruby ~/dev/alexa-home/watir-login.rb
