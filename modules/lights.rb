@@ -60,7 +60,6 @@ def process_lights(command)
     end
     options[:color][:saturation] = SATURATION_MODIFIERS[scan_command[0].to_sym]
   end
-  options[:color][:saturation]
 
   command = command.gsub("to hundred", "two hundred") if command.scan(/to hundred/).length > 0
   words = command.split(" ")

@@ -61,4 +61,11 @@ class AlexaCrawler
 end
 
 a = AlexaCrawler.new
-a.keep_alive
+begin
+	a.keep_alive
+rescue Selenium::WebDriver::Error::JavascriptError
+	p 'Selenium::WebDriver::Error::JavascriptError, restarting...'
+        a.keep_alive
+rescue
+	a.keep_alive
+end

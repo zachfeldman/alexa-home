@@ -6,6 +6,7 @@ require './modules/temperature'
 require 'numbers_in_words'
 require 'numbers_in_words/duck_punch'
 
+
 def process_query(command)
   # HUE LIGHTS #
   if command.scan(/light|lights/).length > 0
