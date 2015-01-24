@@ -19,10 +19,6 @@ gem 'rack-flash3', :git => "git://github.com/treeder/rack-flash.git"
 gem 'watir-webdriver'
 gem 'daemons'
 
-#gem 'spotify', git: "https://github.com/Burgestrand/spotify.git"
-#gem 'plaything'
-#gem 'bluetooth'
-
 group :development do
   gem 'sqlite3'
 end
