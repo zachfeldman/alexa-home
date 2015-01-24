@@ -5,8 +5,6 @@ HUE_CLIENT = Hue::Client.new
 
 ZACH_ROOM_LIGHTS = ["bedside", "overhead"]
 
-
-
 SATURATION_MODIFIERS = {lighter: 200, light: 200, darker: 255, dark: 255, darkest: 200}
 
 def light_command(lights, options = {})
@@ -50,7 +48,8 @@ def process_lights(command)
 
   command.gsub("leider", "lighter")
   command.gsub("later", "lighter")
-  scan_command = command.scan(/#{SATURATION_MODIFIERS.keys.map{|k| "#{k.to_s}\\s" }.join("|")}/)
+  mapped_modifiers = SATURATION_MODIFIERS.keys.map{|k| "#{k.to_s}\\s" }
+  scan_command = command.scan(/#{mapped_modifiers.join("|") if mapped_modifiers}/)
   if scan_command.length > 0
     scan_command = scan_command.map{|k| k.strip}
     options = {} if options.nil?
