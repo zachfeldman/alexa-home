@@ -16,6 +16,10 @@ class AlexaCrawler
     super
   end
 
+  def kill
+    browser.close
+  end
+
   def keep_alive
 
     if browser.url == SETTINGS_URL
@@ -61,11 +65,16 @@ class AlexaCrawler
 end
 
 a = AlexaCrawler.new
-begin
+	
+begin	
 	a.keep_alive
 rescue Selenium::WebDriver::Error::JavascriptError
 	p 'Selenium::WebDriver::Error::JavascriptError, restarting...'
+	a.kill
+        a = AlexaCrawler.new
         a.keep_alive
 rescue
+	a.kill
+	a = AlexaCrawler.new
 	a.keep_alive
 end
