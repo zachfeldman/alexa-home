@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/treeder/rack-flash.git
-  revision: 20e393cdce030f35422dba545a1fed91ed398b29
-  specs:
-    rack-flash3 (1.0.5)
-      rack
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,16 +29,16 @@ GEM
       json
       thor
     i18n (0.7.0)
-    json (1.8.1)
+    json (1.8.2)
     method_source (0.8.2)
-    minitest (5.4.3)
+    minitest (5.5.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     nest_thermostat (0.0.4)
       httparty (~> 0.8.3)
     numbers_in_words (0.2.0)
       activesupport
-    pg (0.17.1)
+    pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -64,7 +57,7 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
-    sinatra-activerecord (2.0.3)
+    sinatra-activerecord (2.0.4)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
     slop (3.6.0)
@@ -90,7 +83,6 @@ DEPENDENCIES
   numbers_in_words
   pg
   pry
-  rack-flash3!
   rake
   sinatra
   sinatra-activerecord
