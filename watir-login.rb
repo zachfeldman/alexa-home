@@ -58,22 +58,23 @@ class AlexaCrawler
     ")
 
     sleep(60*REFRESH_TIME_IN_MINUTES)
-
     keep_alive
   end
 
 end
 
 
-def start_crawler	
+def start_crawler(last_command = "")
 	begin
 		a = AlexaCrawler.new	
+    a.last_command = last_command
 		a.keep_alive
-	rescue
+	rescue => error
+    p "Error: #{error}"
+		last_command = a.last_command
 		a.kill
-		start_crawler
+		start_crawler(last_command)
 	end
 end
 
 start_crawler
-
