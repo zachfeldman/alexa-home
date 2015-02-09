@@ -65,13 +65,15 @@ class AlexaCrawler
 end
 
 
-def start_crawler	
+def start_crawler(last_command = nil)
 	begin
 		a = AlexaCrawler.new	
+                a.last_command = last_command
 		a.keep_alive
 	rescue
+		last_command = a.last_command
 		a.kill
-		start_crawler
+		start_crawler(last_command)
 	end
 end
 
