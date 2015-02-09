@@ -39,7 +39,7 @@ class IRiverPlayer
 
 end
 
-IRIVER_CLIENT = IRiverPlayer.new(iriver_ip: ENV['IRIVER_IP'])
+IRIVER_CLIENT = IRiverPlayer.new(iriver_ip: ENV['IRIVER_IP']) if ENV['IRIVER_IP']
 
 def process_iriver(command)
   if c_present?(command, "river")
