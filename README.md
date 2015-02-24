@@ -17,6 +17,7 @@ You'll also need to set some environmental variables, which could be accomplishe
 ````bash
 # in a file called .env, located at ~
 # try vim ~/.env or nano ~/.env
+export ALEXA_HOME=/path/to/alexa-home/repo
 
 export NEST_EMAIL=your_nest_email@awesome.com
 export NEST_PASS=your_nest_password_not_test123
@@ -38,6 +39,17 @@ This has to be run on the same network your Hue is on, but not necessarily the s
 3) Run `bundle install` (I'm assuming you have Ruby 2.0+, using `ruby -v` to find out, if not try rbenv or rvm to upgrade).
 
 3) If you plan on using a Hue setup, press the button on top of your Hue unit
+
+3) If you don't want to use all of the existing modules, edit `config.yml` and comment out or remove modules. Should look like this:
+
+```
+---
+
+# this is a comment, only configuring hue and nest
+modules:
+  - hue
+  - nest
+```
 
 4) Type `chmod +x startScript.sh && ./startupScript.sh`
 
