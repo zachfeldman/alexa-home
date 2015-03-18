@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/zachfeldman/uber_api.git
+  revision: a4930c7b561ec4feb4c2df53bea65952ea327e29
+  specs:
+    uber_api (0.1.2)
+      faraday
+      faraday_middleware
+      json
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -21,7 +30,12 @@ GEM
     coderay (1.1.0)
     color (1.7.1)
     daemons (1.1.9)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
     ffi (1.9.6)
+    geocoder (1.2.7)
     httparty (0.8.3)
       multi_json (~> 1.0)
       multi_xml
@@ -34,6 +48,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nest_thermostat (0.0.4)
       httparty (~> 0.8.3)
     numbers_in_words (0.2.0)
@@ -78,6 +93,7 @@ DEPENDENCIES
   activerecord
   color
   daemons
+  geocoder
   hue
   nest_thermostat
   numbers_in_words
@@ -87,4 +103,5 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sqlite3
+  uber_api!
   watir-webdriver

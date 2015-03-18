@@ -18,6 +18,9 @@ gem 'rake'
 gem 'watir-webdriver'
 gem 'daemons'
 
+gem 'geocoder'
+gem 'uber_api', github: "zachfeldman/uber_api"
+
 group :development do
   gem 'sqlite3'
 end
