@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 
-gem 'hue'
+gem 'hue', github: "zachfeldman/hue"
 gem 'color'
 
 gem 'nest_thermostat'
