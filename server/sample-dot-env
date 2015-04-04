@@ -1,0 +1,7 @@
+# required to run
+export ALEXA_HOME=/path/to/alexa-home/repo
+
+export AMAZON_EMAIL=youramazonlogin
+export AMAZON_PASSWORD=your_awesome_pass_not_12345
+
+# for module-specific env vars, see the docs/modules folder

@@ -1,0 +1,9 @@
+# Comment out modules that you do not want your server to load.
+---
+
+modules:
+  # - hue
+  - nest
+  - jriver
+  - uber
+  - google_calendar

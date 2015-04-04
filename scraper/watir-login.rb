@@ -1,5 +1,4 @@
 require 'watir-webdriver'
-require 'pry'
 
 class AlexaCrawler
 
@@ -19,14 +18,7 @@ class AlexaCrawler
   def kill
     browser.close
   end
-
-  def self.back_from_the_dead(instance)
-    instance.kill
-    alexa_crawler = new
-    alexa_crawler.keep_alive
-    instance = nil
-  end
-
+  
   def keep_alive
 
     if browser.url == SETTINGS_URL
