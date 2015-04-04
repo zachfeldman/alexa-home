@@ -21,6 +21,11 @@ gem 'daemons'
 gem 'geocoder'
 gem 'uber_api', github: "zachfeldman/uber_api"
 
+gem 'google-api-client'
+gem 'json'
+gem 'chronic'
+gem 'titleize'
+
 group :development do
   gem 'sqlite3'
 end

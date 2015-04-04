@@ -74,6 +74,12 @@ Note: Since you can't see the screen if starting a headless Pi: I have the first
 
 2) Nest Thermostat
 
+3) iRiver player
+
+4) Uber
+
+5) [Google Calendar](https://github.com/zachfeldman/alexa-home/wiki/Google-Calendar-README)
+
 ## Module Roadmap
 
 I'd love to get these resolvers/modules done at some point too:
@@ -82,7 +88,7 @@ I'd love to get these resolvers/modules done at some point too:
 
 2) IR Transmitter to turn on and off the television
 
-3) Uber to call a cab...with your voice!
+3) Uber to call a cab...with your voice! [DONE]
 
 ## Stopping Alexa Home
 
@@ -93,6 +99,7 @@ I'd love to get these resolvers/modules done at some point too:
 ## Contributors
 
 [@zachfeldman](https://twitter.com/zachfeldman)
+Steven Arkonovich (funded iRiver integration, wrote Google Calendar integration)
 
 ## Contributing
 

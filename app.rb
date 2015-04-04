@@ -8,6 +8,7 @@ require './modules/lights' if modules.include? 'hue'
 require './modules/temperature' if modules.include? 'nest'
 require './modules/iRiver_player' if modules.include? 'iriver'
 require './modules/uber' if modules.include? 'uber'
+require './modules/google_calendar.rb' if modules.include? 'google_calendar'
 
 require 'numbers_in_words'
 require 'numbers_in_words/duck_punch'
@@ -23,6 +24,8 @@ def process_query(command)
     process_player(command, player: "iriver")
   elsif command.scan(/cab to/).length > 0
     process_uber(command)
+  elsif command.scan(/google/).length > 0
+    process_calendar(command)
   end
 end
 

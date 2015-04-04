@@ -1,7 +1,8 @@
 ---
 
 modules:
-  - hue
+  # - hue
   - nest
   - iriver
   - uber
+  - google_calendar
