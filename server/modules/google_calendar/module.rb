@@ -99,6 +99,7 @@ class AlexaGoogleCalendar
       modifier = 'p.m.'
     elsif command.downcase.scan(/morning/).length > 0
       modifier = 'a.m.'
+    else modifier = ''
     end
 
     complexity = time.compact.length
