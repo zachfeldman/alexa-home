@@ -90,14 +90,14 @@ class AlexaHue
 
   def light_command(lights, options = {})
     p options
-      if lights.class = Hue::Group
+      if lights.class == Hue::Group
         lights.on = options[:on] if !options[:on].nil?
         lights.set_state(options[:color]) if !options[:color].nil?
         sleep(0.5)
       else lights.each do |light|
         light.on = options[:on] if !options[:on].nil?
         light.set_state(options[:color]) if !options[:color].nil?
-      sleep(0.5)
+        sleep(0.5)
       end
     end
   end
