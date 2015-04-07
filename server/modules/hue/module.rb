@@ -5,9 +5,11 @@ class AlexaHue
 
   HUE_CLIENT = Hue::Client.new
 
-  ZACH_ROOM_LIGHTS = ["bedside", "overhead"]
-
   SATURATION_MODIFIERS = {lighter: 200, light: 200, darker: 255, dark: 255, darkest: 200}
+
+  GROUPS = {}
+
+  HUE_CLIENT.groups.each do |g| GROUPS[g.name] = g.id end 
 
   def wake_words
     ["light", "lights"]
@@ -19,8 +21,12 @@ class AlexaHue
     # Select lights
     if command.scan(/all/).length > 0
       lights_to_act_on = HUE_CLIENT.lights
-    elsif command.scan(/room/).length > 0
-      lights_to_act_on = HUE_CLIENT.lights.select{|light| ZACH_ROOM_LIGHTS.include?(light.name.downcase)}
+    elsif  GROUPS.keys.any? { |g| command.include?(g.downcase) }
+      GROUPS.keys.each do |k|
+        if command.include?(k.downcase)
+        lights_to_act_on = HUE_CLIENT.group(GROUPS[k])
+        end
+      end
     else
       lights_to_act_on = HUE_CLIENT.lights.select{|light| command.split(" ").include?(light.name.downcase)}
     end
