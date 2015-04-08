@@ -1,5 +1,5 @@
 require 'hue'
-require 'color.rb'
+
 
 class AlexaHue
 
@@ -13,6 +13,16 @@ class AlexaHue
 
   def wake_words
     ["light", "lights"]
+  end
+
+  def string_to_hue(string)
+    mired_colors = {sleeping: 500, candle: 445, relaxing: 387, neutral: 327, reading: 286, working: 227, flourescent: 180}
+    basic_color_hues = {red: 65280, pink: 56100, purple: 52180, violet: 47188, blue: 46920, turquoise: 31146, green: 25500, yellow: 12750, orange: 8618}
+    if basic_color_hues.keys.include?(string.to_sym)
+      directive = {hue: basic_color_hues[string.to_sym], saturation: 255}
+    elsif mired_colors.keys.include?(string.to_sym)
+      directive = {ct: mired_colors[string.to_sym]}
+    end
   end
 
   def process_command(command)
