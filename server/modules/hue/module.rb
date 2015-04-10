@@ -1,16 +1,28 @@
 require 'hue'
-require 'color.rb'
+
 
 class AlexaHue
 
   HUE_CLIENT = Hue::Client.new
 
-  ZACH_ROOM_LIGHTS = ["bedside", "overhead"]
-
   SATURATION_MODIFIERS = {lighter: 200, light: 200, darker: 255, dark: 255, darkest: 200}
+
+  GROUPS = {}
+
+  HUE_CLIENT.groups.each do |g| GROUPS[g.name] = g.id end 
 
   def wake_words
     ["light", "lights"]
+  end
+
+  def string_to_hue(string)
+    mired_colors = {sleeping: 500, candle: 445, relaxing: 387, neutral: 327, reading: 286, working: 227, flourescent: 180}
+    basic_color_hues = {red: 65280, pink: 56100, purple: 52180, violet: 47188, blue: 46920, turquoise: 31146, green: 25500, yellow: 12750, orange: 8618}
+    if basic_color_hues.keys.include?(string.to_sym)
+      directive = {hue: basic_color_hues[string.to_sym], saturation: 255}
+    elsif mired_colors.keys.include?(string.to_sym)
+      directive = {ct: mired_colors[string.to_sym]}
+    end
   end
 
   def process_command(command)
@@ -19,8 +31,12 @@ class AlexaHue
     # Select lights
     if command.scan(/all/).length > 0
       lights_to_act_on = HUE_CLIENT.lights
-    elsif command.scan(/room/).length > 0
-      lights_to_act_on = HUE_CLIENT.lights.select{|light| ZACH_ROOM_LIGHTS.include?(light.name.downcase)}
+    elsif  GROUPS.keys.any? { |g| command.include?(g.downcase) }
+      GROUPS.keys.each do |k|
+        if command.include?(k.downcase)
+        lights_to_act_on = HUE_CLIENT.group(GROUPS[k])
+        end
+      end
     else
       lights_to_act_on = HUE_CLIENT.lights.select{|light| command.split(" ").include?(light.name.downcase)}
     end
@@ -84,13 +100,17 @@ class AlexaHue
 
   def light_command(lights, options = {})
     p options
-    lights.each do |light|
-      light.on = options[:on] if !options[:on].nil?
-      light.set_state(options[:color]) if !options[:color].nil?
-      sleep(0.5)
+      if lights.class == Hue::Group
+        lights.on = options[:on] if !options[:on].nil?
+        lights.set_state(options[:color]) if !options[:color].nil?
+        sleep(0.5)
+      else lights.each do |light|
+        light.on = options[:on] if !options[:on].nil?
+        light.set_state(options[:color]) if !options[:color].nil?
+        sleep(0.5)
+      end
     end
   end
-
 end
 
 MODULE_INSTANCES.push(AlexaHue.new)
