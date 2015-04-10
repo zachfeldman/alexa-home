@@ -1,4 +1,5 @@
 require 'hue'
+require_relative './scenes/scenes'
 
 
 class AlexaHue
@@ -35,6 +36,12 @@ class AlexaHue
       GROUPS.keys.each do |k|
         if command.include?(k.downcase)
         lights_to_act_on = HUE_CLIENT.group(GROUPS[k])
+        end
+      end
+    elsif SCENES.keys.any? { |n| command.include?(n.downcase.gsub('-',' ')) }
+      SCENES.keys.each do |k|
+        if command.include?(k.downcase.gsub('-', ' '))
+          HUE_CLIENT.group(SCENES[k]).set_state({scene: k})
         end
       end
     else
