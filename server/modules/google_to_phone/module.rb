@@ -90,7 +90,7 @@ class GoogleToPhone
 				self.browser ||= Watir::Browser.new
 				self.browser.wait(3)
 				self.browser.goto(SEARCH_URL)
-					if !self.browser.div(:text => EMAIL).exist?
+					if !self.browser.div(:text => ENV[GOOGLE_EMAIL).exist?
 						authorize(command)
 					end
 			rescue => error
