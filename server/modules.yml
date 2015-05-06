@@ -7,3 +7,4 @@ modules:
   - jriver
   - uber
   - google_calendar
+  - google_to_phone

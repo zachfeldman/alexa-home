@@ -7,7 +7,7 @@ require 'titleize'
 class AlexaGoogleCalendar
 
   def wake_words
-    ["google", "add an event"]
+    ["add event"]
   end
 
   TIMES = {
@@ -116,7 +116,7 @@ class AlexaGoogleCalendar
       command.gsub!(replace_time.join(' '), time)
     end
 
-    command.gsub!('google', '').titleize!
+    command.gsub!('add event', '').titleize!
   end
 
 end
