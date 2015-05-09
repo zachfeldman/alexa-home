@@ -1,9 +1,8 @@
 require 'evernote_oauth'
 require 'chronic'
-require 'pry'
 
 # You'll need a developer token. Visit: https://www.evernote.com/api/DeveloperToken.action
-TOKEN = 'S=s10:U=114e5f:E=1548c9b44b1:C=14d34ea1690:P=1cd:A=en-devtoken:V=2:H=daa8882d57c9dee65d9a41b28ea639dc'
+TOKEN = 'Your Developer Token Here'
 TIMES = {
     ' a' => '1', 'one' => '1', 'two' => '2', 'three' => '3', 'four' => '4', 'five' => '5', 'six' => '6',
     'seven' => '7', 'eight' => '8', 'nine' => '9', 'ten' => '10', 'eleven' => '11', 'twelve' => '12',
@@ -88,6 +87,5 @@ class AlexaEvernote
   	puts "Note created with GUID: #{created_note.guid}"
   end
 end
-binding.pry
 
 MODULE_INSTANCES.push(AlexaEvernote.new)
