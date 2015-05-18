@@ -9,3 +9,4 @@ modules:
   - google_calendar
   - google_to_phone
   - evernote
+  - alexa_schedules
