@@ -6,7 +6,7 @@ You'll need to set some environment variables. If you don't know what that means
 
 2) Open up the directory in your terminal application by dragging it into Terminal from the Finder or using the `cd` (change directory) command, I.E. `cd /home/pi/dev/alexa-home`
 
-3) Run `bundle install` (I'm assuming you have Ruby 2.0+, using `ruby -v` to find out, if not try rbenv or rvm to upgrade).
+3) Run `bundle install` (I'm assuming you have Ruby 2.0+, using `ruby -v` to find out, if not try rbenv or rvm to upgrade) in both the `scraper` and `server` directories.
 
 4) If you plan on using a Hue setup, press the button on top of your Hue unit
 
