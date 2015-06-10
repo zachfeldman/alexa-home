@@ -24,7 +24,7 @@ Here's a blog post too with a bad demo video and some background:
 
 Here are the modules we have so far, would love some more! Docs for each as well if you click the link.
 
-1) [Phillips Hue](docs/modules/hue.md)
+1) [Phillips Hue](docs/modules/hue.md)*
 
 2) [Nest Thermostat](docs/modules/nest.md)
 
@@ -34,11 +34,14 @@ Here are the modules we have so far, would love some more! Docs for each as well
 
 5) [Google Calendar](docs/modules/google_calendar.md)
 
+6) [Evernote Reminders](docs/modules/evernote/Evernote Reminders.md)
 
+######*New Hue Module
+The new Hue module add several features. 1) It can handle multi-word light and group names. 2) Full scene support: recall scenes, and save current light configuration as a new scene. 3) Any command that can be given to lights can be scheduled. See hue readme.md
 ## Contributors
 
 - [@zachfeldman](https://twitter.com/zachfeldman) (Wrote majority of codebase, original idea)
-- Steven Arkonovich (funded iRiver integration, wrote Google Calendar integration)
+- Steven Arkonovich (funded iRiver integration, wrote Google Calendar and Evernote integration)
 
 
 ## Contributing
@@ -49,3 +52,6 @@ Send in pull requests! Please keep with the format that we have already re: modu
 ## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+
+
