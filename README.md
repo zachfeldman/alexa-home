@@ -37,7 +37,7 @@ Here are the modules we have so far, would love some more! Docs for each as well
 6) [Evernote Reminders](docs/modules/evernote/Evernote Reminders.md)
 
 ######*New Hue Module
-The new Hue module add several features. 1) It can handle multi-word light and group names. 2) Full scene support: recall scenes, and save current light configuration as a new scene. 3) Any command that can be given to lights can be scheduled. See hue readme.md
+The new Hue module adds several features. 1) It can handle multi-word light and group names. 2) Full scene support: recall scenes, and save current light configuration as a new scene. 3) Any command that can be given to lights can be scheduled. See hue readme.md
 ## Contributors
 
 - [@zachfeldman](https://twitter.com/zachfeldman) (Wrote majority of codebase, original idea)
