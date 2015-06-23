@@ -36,7 +36,7 @@ Save current light configuration as a scene
 Any command can be scheduled
 
 `schedule dinner scene in 10 minutes`
-`schedule kitchen lighs off at eight forty five`
+`schedule kitchen lights off at eight forty five`
 `schedule table light color blue saturation tonight at five forty five`
 `kitchen light long alert in one hour`
 
